@@ -1,6 +1,7 @@
 import 'package:camera/camera.dart';
-
 import 'package:flutter/material.dart';
+import 'Screens/CameraScreen.dart';
+import 'Screens/LoginScreen.dart';
 
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -18,7 +19,7 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
           fontFamily: "OpenSans",
           primaryColor: Color(0xFF075E54),
-          accentColor: Color(0xFF128C7E)),
+          hintColor: Color(0xFF128C7E)),
       home: LoginScreen(),
     );
   }

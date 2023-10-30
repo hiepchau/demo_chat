@@ -4,7 +4,7 @@ import 'package:flutter_svg/svg.dart';
 import '../Model/ChatModel.dart';
 
 class AvatarCard extends StatelessWidget {
-  const AvatarCard({Key key, this.chatModel}) : super(key: key);
+  const AvatarCard({required Key key, required this.chatModel}) : super(key: key);
   final ChatModel chatModel;
 
   @override

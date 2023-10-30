@@ -1,10 +1,12 @@
-// import 'package:camera/camera.dart';
-// import 'package:chatapp/CustomUI/CameraUI.dart';
-
-import 'package:emoji_picker/emoji_picker.dart';
+import 'package:emoji_picker_flutter/emoji_picker_flutter.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:socket_io_client/socket_io_client.dart' as IO;
+
+import '../CustomUI/OwnMessageCard.dart';
+import '../CustomUI/ReplyCard.dart';
+import '../Model/ChatModel.dart';
+import '../Model/MessageModel.dart';
 
 class IndividualPage extends StatefulWidget {
   IndividualPage({Key key, this.chatModel, this.sourchat}) : super(key: key);
@@ -22,7 +24,7 @@ class _IndividualPageState extends State<IndividualPage> {
   List<MessageModel> messages = [];
   TextEditingController _controller = TextEditingController();
   ScrollController _scrollController = ScrollController();
-  IO.Socket socket;
+  late IO.Socket socket;
   @override
   void initState() {
     super.initState();
