@@ -9,7 +9,7 @@ import '../Model/ChatModel.dart';
 import '../Model/MessageModel.dart';
 
 class IndividualPage extends StatefulWidget {
-  IndividualPage({Key key, this.chatModel, this.sourchat}) : super(key: key);
+  IndividualPage({Key? key, required this.chatModel, required this.sourchat}) : super(key: key);
   final ChatModel chatModel;
   final ChatModel sourchat;
 
@@ -102,13 +102,13 @@ class _IndividualPageState extends State<IndividualPage> {
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
-                    Icon(
+                    const Icon(
                       Icons.arrow_back,
                       size: 24,
                     ),
                     CircleAvatar(
                       child: SvgPicture.asset(
-                        widget.chatModel.isGroup
+                        widget.chatModel.isGroup ?? false
                             ? "assets/groups.svg"
                             : "assets/person.svg",
                         color: Colors.white,
@@ -130,7 +130,7 @@ class _IndividualPageState extends State<IndividualPage> {
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
                       Text(
-                        widget.chatModel.name,
+                        widget.chatModel.name ?? "",
                         style: TextStyle(
                           fontSize: 18.5,
                           fontWeight: FontWeight.bold,
@@ -206,13 +206,13 @@ class _IndividualPageState extends State<IndividualPage> {
                         }
                         if (messages[index].type == "source") {
                           return OwnMessageCard(
-                            message: messages[index].message,
-                            time: messages[index].time,
+                            message: messages[index].message ?? "",
+                            time: messages[index].time ?? "",
                           );
                         } else {
                           return ReplyCard(
-                            message: messages[index].message,
-                            time: messages[index].time,
+                            message: messages[index].message ?? "",
+                            time: messages[index].time ?? "",
                           );
                         }
                       },
@@ -328,8 +328,8 @@ class _IndividualPageState extends State<IndividualPage> {
                                             curve: Curves.easeOut);
                                         sendMessage(
                                             _controller.text,
-                                            widget.sourchat.id,
-                                            widget.chatModel.id);
+                                            widget.sourchat.id ?? -1,
+                                            widget.chatModel.id ?? -1);
                                         _controller.clear();
                                         setState(() {
                                           sendButton = false;
@@ -447,12 +447,12 @@ class _IndividualPageState extends State<IndividualPage> {
 
   Widget emojiSelect() {
     return EmojiPicker(
-        rows: 4,
-        columns: 7,
-        onEmojiSelected: (emoji, category) {
+        config: Config(),
+        textEditingController: _controller,
+        onEmojiSelected: (category, emoji) {
           print(emoji);
           setState(() {
-            _controller.text = _controller.text + emoji.emoji;
+            _controller.text += emoji?.emoji ?? "";
           });
         });
   }

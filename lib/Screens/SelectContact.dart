@@ -7,7 +7,7 @@ import '../Model/ChatModel.dart';
 import 'CreateGroup.dart';
 
 class SelectContact extends StatefulWidget {
-  SelectContact({Key key}) : super(key: key);
+  SelectContact({Key? key}) : super(key: key);
 
   @override
   _SelectContactState createState() => _SelectContactState();
@@ -65,19 +65,19 @@ class _SelectContactState extends State<SelectContact> {
               },
               itemBuilder: (BuildContext contesxt) {
                 return [
-                  PopupMenuItem(
+                  const PopupMenuItem(
                     child: Text("Invite a friend"),
                     value: "Invite a friend",
                   ),
-                  PopupMenuItem(
+                  const PopupMenuItem(
                     child: Text("Contacts"),
                     value: "Contacts",
                   ),
-                  PopupMenuItem(
+                  const PopupMenuItem(
                     child: Text("Refresh"),
                     value: "Refresh",
                   ),
-                  PopupMenuItem(
+                  const PopupMenuItem(
                     child: Text("Help"),
                     value: "Help",
                   ),
@@ -95,13 +95,13 @@ class _SelectContactState extends State<SelectContact> {
                     Navigator.push(context,
                         MaterialPageRoute(builder: (builder) => CreateGroup()));
                   },
-                  child: ButtonCard(
+                  child: const ButtonCard(
                     icon: Icons.group,
                     name: "New group",
                   ),
                 );
               } else if (index == 1) {
-                return ButtonCard(
+                return const ButtonCard(
                   icon: Icons.person_add,
                   name: "New contact",
                 );

@@ -1,8 +1,12 @@
 
 import 'package:flutter/material.dart';
 
+import '../Model/ChatModel.dart';
+import '../Pages/CameraPage.dart';
+import '../Pages/ChatPage.dart';
+
 class Homescreen extends StatefulWidget {
-  Homescreen({Key key, this.chatmodels, this.sourchat}) : super(key: key);
+  Homescreen({Key? key, required this.chatmodels, required this.sourchat}) : super(key: key);
   final List<ChatModel> chatmodels;
   final ChatModel sourchat;
 
@@ -12,7 +16,7 @@ class Homescreen extends StatefulWidget {
 
 class _HomescreenState extends State<Homescreen>
     with SingleTickerProviderStateMixin {
-  TabController _controller;
+  late TabController _controller;
   @override
   void initState() {
     super.initState();

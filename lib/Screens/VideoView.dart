@@ -4,7 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:video_player/video_player.dart';
 
 class VideoViewPage extends StatefulWidget {
-  const VideoViewPage({required Key key, required this.path}) : super(key: key);
+  const VideoViewPage({Key? key, required this.path}) : super(key: key);
   final String path;
 
   @override

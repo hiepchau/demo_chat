@@ -75,7 +75,7 @@ class _LoginScreenState extends State<LoginScreen> {
                               )));
                 },
                 child: ButtonCard(
-                  name: chatmodels[index].name,
+                  name: chatmodels[index].name ?? "",
                   icon: Icons.person,
                 ),
               )),

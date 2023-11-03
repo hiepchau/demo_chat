@@ -1,23 +1,26 @@
 import 'dart:math';
 
 import 'package:camera/camera.dart';
+import 'package:demo_chat/Screens/CameraView.dart';
 
 import 'package:flutter/material.dart';
 import 'package:path/path.dart';
 import 'package:path_provider/path_provider.dart';
 
-List<CameraDescription> cameras;
+import 'VideoView.dart';
+
+late List<CameraDescription> cameras;
 
 class CameraScreen extends StatefulWidget {
-  CameraScreen({Key key}) : super(key: key);
+  CameraScreen({Key? key}) : super(key: key);
 
   @override
   _CameraScreenState createState() => _CameraScreenState();
 }
 
 class _CameraScreenState extends State<CameraScreen> {
-  CameraController _cameraController;
-  Future<void> cameraValue;
+  late CameraController _cameraController;
+  late Future<void> cameraValue;
   bool isRecoring = false;
   bool flash = false;
   bool iscamerafront = true;
@@ -50,7 +53,7 @@ class _CameraScreenState extends State<CameraScreen> {
                       height: MediaQuery.of(context).size.height,
                       child: CameraPreview(_cameraController));
                 } else {
-                  return Center(
+                  return const Center(
                     child: CircularProgressIndicator(),
                   );
                 }

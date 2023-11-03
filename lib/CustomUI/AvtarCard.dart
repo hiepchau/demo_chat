@@ -4,7 +4,7 @@ import 'package:flutter_svg/svg.dart';
 import '../Model/ChatModel.dart';
 
 class AvatarCard extends StatelessWidget {
-  const AvatarCard({required Key key, required this.chatModel}) : super(key: key);
+  const AvatarCard({Key? key, required this.chatModel}) : super(key: key);
   final ChatModel chatModel;
 
   @override
@@ -19,7 +19,7 @@ class AvatarCard extends StatelessWidget {
               CircleAvatar(
                 radius: 23,
                 child: SvgPicture.asset(
-                  "assets/person.svg",
+                  chatModel.icon ?? "default_icon_path.svg",
                   color: Colors.white,
                   height: 30,
                   width: 30,
@@ -45,7 +45,7 @@ class AvatarCard extends StatelessWidget {
             height: 2,
           ),
           Text(
-            chatModel.name,
+            chatModel.name ?? "",
             style: TextStyle(
               fontSize: 12,
             ),

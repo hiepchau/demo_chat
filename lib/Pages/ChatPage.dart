@@ -4,7 +4,7 @@ import '../Model/ChatModel.dart';
 import '../Screens/SelectContact.dart';
 
 class ChatPage extends StatefulWidget {
-  ChatPage({Key? key, this.chatmodels, this.sourchat}) : super(key: key);
+  ChatPage({Key? key, required this.chatmodels, required this.sourchat}) : super(key: key);
   final List<ChatModel> chatmodels;
   final ChatModel sourchat;
 
@@ -21,7 +21,7 @@ class _ChatPageState extends State<ChatPage> {
           Navigator.push(context,
               MaterialPageRoute(builder: (builder) => SelectContact()));
         },
-        child: Icon(
+        child: const Icon(
           Icons.chat,
           color: Colors.white,
         ),

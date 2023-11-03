@@ -1,8 +1,12 @@
 
+import 'package:demo_chat/CustomUI/AvtarCard.dart';
 import 'package:flutter/material.dart';
 
+import '../CustomUI/ContactCard.dart';
+import '../Model/ChatModel.dart';
+
 class CreateGroup extends StatefulWidget {
-  CreateGroup({Key key}) : super(key: key);
+  CreateGroup({Key? key}) : super(key: key);
 
   @override
   _CreateGroupState createState() => _CreateGroupState();
